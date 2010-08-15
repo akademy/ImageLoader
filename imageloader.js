@@ -121,29 +121,21 @@
 						this.onImageLoaded( this.images[i].name, this.images[i].image );
 				}
 		
-			this.checkComplete();
+			checkComplete();
 		}
 		
-		this.checkComplete = function() {
+		function checkComplete() {
 			for( i = 0; i < this.imageCount; i++ )
 				if( !this.images[i].loaded )
 					return;
 			
-			this.complete();
+			complete();
 		}
 		
-		this.complete = function () {
+		function complete() {
 			if( this.onAllLoaded != null )
 				this.onAllLoaded();
 		}
-		
-		//this.startCheck = function () {
-		//	setTimeout( function () { thatImageLoader.checking( "Hello" ); }, 500 );
-		//}
-		
-		//this.checking = function(param) {
-		//	alert( "Hello: " + param + this.str );
-		//}
 		
 		function LoadImage( name, id, position, file, thisImageLoader )
 		{
@@ -171,28 +163,3 @@
 		}
 	}
 }
-
-/*imageLoader = new ImageLoader( {
-		"images": [
-			{"name":"big", file:"TerraformedMarsGlobeRealistic/TileGroup0/0-0-0.jpg"},
-			{"name":"small1", file:"TerraformedMarsGlobeRealistic/TileGroup0/1-0-0.jpg"},
-			{"name":"small2", file:"TerraformedMarsGlobeRealistic/TileGroup0/1-0-1.jpg"}
-		],
-		"onloaded":function() { alert( "Complete" ); }
-	}
-)*/
-
-/*setTimeout( 'checkComplete()',100  );
-function checkComplete()
-{
-	if( imageLoader.loadedNames( ["big","small1"] ) )
-		alert( "Both loaded" );
-		
-	if( imageLoader.loadedNames( ["big"] ) )
-		alert( "Big loaded" );
-		
-	if( imageLoader.loadedAll() )
-		alert( "All Done!" );
-	else
-		setTimeout( 'checkComplete()',100 );
-}*/
